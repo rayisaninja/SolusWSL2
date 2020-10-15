@@ -3,7 +3,7 @@ LNCR_EXE=Solus.exe
 
 DLR=curl
 DLR_FLAGS=-L
-LNCR_ZIP_URL=https://gitlab.com/sileshn/wsldl/uploads/a7c3c412c7bfaf64f02b7035270eb522/icons.zip
+LNCR_ZIP_URL=https://github.com/sileshn/wsldl/releases/download/20201013/icons.zip
 LNCR_ZIP_EXE=Solus.exe
 
 all: $(OUT_ZIP)
