@@ -1,7 +1,7 @@
 # SolusWSL
 Solus on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl)
 
-![screenshot](https://raw.githubusercontent.com/sileshn/SolusWSL/main/img/screenshot.png)
+[![Screenshot-2021-02-04-074402.png](https://i.postimg.cc/Df1gxs31/Screenshot-2021-02-04-074402.png)](https://postimg.cc/mh2CDPDr)
 [![Github All Releases](https://img.shields.io/github/downloads/sileshn/SolusWSL/total.svg?style=flat-square)](https://github.com/sileshn/SolusWSL/releases) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) ![License](https://img.shields.io/github/license/yosukes-dev/FedoraWSL.svg?style=flat-square)
 
 ## Requirements
