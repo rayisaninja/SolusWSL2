@@ -4,7 +4,7 @@ Solus on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7
 ![screenshot](https://raw.githubusercontent.com/sileshn/SolusWSL/main/img/screenshot.png)
 [![Github All Releases](https://img.shields.io/github/downloads/sileshn/SolusWSL/total.svg?style=flat-square)](https://github.com/sileshn/SolusWSL/releases) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) ![License](https://img.shields.io/github/license/yosukes-dev/FedoraWSL.svg?style=flat-square)
 
-## 💻 Requirements
+## Requirements
 * For x64 systems: Version 1903 or higher, with Build 18362 or higher.
 * For ARM64 systems: Version 2004 or higher, with Build 19041 or higher.
 * Builds lower than 18362 do not support WSL 2.
@@ -20,25 +20,34 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 For more details, check [this](https://docs.microsoft.com/en-us/windows/wsl/install-win10) microsoft document.
 
-## Install
-1. [Download](https://github.com/sileshn/SolusWSL/releases/latest) installer zip
-2. Extract all files in zip file to same directory
-3. Run Solus.exe to Extract rootfs and Register to WSL
+## How to install
+* Make sure all the steps mentioned under "Requirements" are completed.
+* Set wsl2 as default. Run the command below in a windows cmd terminal.
+```dos
+wsl --set-default-version 2
+```
+* [Download](https://github.com/sileshn/SolusWSL/releases/latest) installer zip
+* Extract all files in zip file to same directory.
+* Run Manjaro.exe to Extract rootfs and Register to WSL
 
 **Note:**
 Exe filename is using the instance name to register. If you rename it you can register with a diffrent name and have multiple installs.
 
-If you want to use WSL2 after install, convert it with the following command.
+## How to setup
+Open Solus.exe and run the following commands.
 ```dos
-wsl --set-version Solus 2
+passwd
+sed -i 's#\# %wheel ALL=(ALL) ALL#%wheel ALL=(ALL) ALL#g' /etc/sudoers
+useradd -m -G wheel -s /bin/bash <username>
+passwd <username>
+exit
+```
+Execute the command below in a windows cmd terminal from the directory where Solus.exe is installed.
+```dos
+>Solus.exe config --default-user <username>
 ```
 
-You can also set wsl2 as default. Use the command below before running Solus.exe.
-```dos
-wsl --set-default-version 2
-```
-
-## How-to-Use(for Installed Instance)
+## How to use installed instance
 #### exe Usage
 ```
 Usage :
@@ -108,21 +117,6 @@ Usage :
 >{InstanceName}.exe config --default-term wt
 ```
 
-## How to setup
-
-Open Solus.exe and run the following commands.
-```dos
-passwd
-sed -i 's#\# %wheel ALL=(ALL) ALL#%wheel ALL=(ALL) ALL#g' /etc/sudoers
-useradd -m -G wheel -s /bin/bash <username>
-passwd <username>
-exit
-```
-Execute the command below in a windows cmd terminal from the directory where Solus.exe is installed.
-```dos
->Solus.exe config --default-user <username>
-```
-
 ## How to uninstall instance
 ```dos
 >Solus.exe clean
@@ -130,7 +124,6 @@ Execute the command below in a windows cmd terminal from the directory where Sol
 ```
 
 ## How to build
-
 #### Prerequisites
 
 Docker, tar, zip, unzip need to be installed.
