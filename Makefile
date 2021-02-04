@@ -43,7 +43,7 @@ rootfs: base.tar
 
 base.tar:
 	@echo -e '\e[1;31mExporting base.tar using docker...\e[m'
-	docker run --name soluswsl silkeh/solus:ypkg /bin/bash -c "eopkg up -y; eopkg it -y rsync openssh; eopkg dc;"
+	docker run --name soluswsl silkeh/solus:ypkg /bin/bash -c "eopkg up -y; eopkg it -y iptables openssh rsync; eopkg dc;"
 	docker export --output=base.tar soluswsl
 	docker rm -f soluswsl
 
