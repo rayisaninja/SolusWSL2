@@ -145,15 +145,15 @@ make clean
 Install docker binaries. Note that installing docker from solus repos doesn't work as the latest version in solus is 19.03.14. We need 20.10 versions and above.
 ```dos
 sudo eopkg it -y wget
-wget https://download.docker.com/linux/static/stable/x86_64/docker-20.10.3.tgz
-tar xzvf docker-20.10.3.tgz
+wget https://download.docker.com/linux/static/stable/x86_64/docker-20.10.4.tgz
+tar xzvf docker-20.10.4.tgz
 sudo cp docker/* /usr/bin/
 
 ```
 You can now delete the downloaded files if needed.
 ```dos
 rm -rf docker
-rm docker-20.10.3.tgz
+rm docker-20.10.4.tgz
 
 ```
 
