@@ -32,7 +32,7 @@ wsl --set-default-version 2
 ```
 * [Download](https://github.com/sileshn/SolusWSL/releases/latest) installer zip
 * Extract all files in zip file to same directory.
-* Run Manjaro.exe to Extract rootfs and Register to WSL
+* Run Solus.exe to Extract rootfs and Register to WSL
 
 **Note:**
 Exe filename is using the instance name to register. If you rename it you can register with a diffrent name and have multiple installs.
@@ -82,6 +82,9 @@ Usage :
     backup [contents]
       - `--tar`: Output backup.tar to the current directory.
       - `--reg`: Output settings registry file to the current directory.
+	  - `--tgz`: Output backup.tar.tar to the current directory.
+      - `--vhdx`: Output backup.ext4.vhdx to the current directory.
+      - `--vhdxgz`: Output backup.ext4.vhdx.gz to the current directory.
 
     clean
       - Uninstall that instance.
@@ -125,6 +128,38 @@ Usage :
 ```dos
 >Solus.exe clean
 
+```
+
+## How to backup instance
+export to backup.tar.gz
+```cmd
+>Solus.exe backup --tgz
+```
+export to backup.ext4.vhdx.gz
+```cmd
+>Solus.exe backup --vhdxgz
+```
+
+## How to restore instance
+
+There are 2 ways to do it. 
+
+Rename the backup to rootfs.tar.gz and run Solus.exe
+
+(or)
+
+.tar(.gz)
+```cmd
+>Solus.exe install backup.tar.gz
+```
+.ext4.vhdx(.gz)
+```cmd
+>Solus.exe install backup.ext4.vhdx.gz
+```
+
+You may need to run the command below in some circumstances.
+```cmd
+>Solus.exe --default-uid 1000
 ```
 
 ## How to build
