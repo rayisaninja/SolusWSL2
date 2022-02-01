@@ -5,6 +5,9 @@ Solus on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7
 [![Github All Releases](https://img.shields.io/github/downloads/sileshn/SolusWSL/total.svg?style=flat-square)](https://github.com/sileshn/SolusWSL/releases) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
 [![License](https://img.shields.io/github/license/sileshn/SolusWSL.svg?style=flat-square)](https://raw.githubusercontent.com/sileshn/SolusWSL/main/LICENSE)
 
+## Important information
+SolusWSL includes a wsl.conf file which only has [section headers](https://i.postimg.cc/MZ4DC1Fw/Screenshot-2022-02-02-071533.png). Users can use this file to configure the distro to their liking. You can read more about wsl.conf and its configuration settings [here](https://docs.microsoft.com/en-us/windows/wsl/wsl-config).
+
 ## Requirements
 * For x64 systems: Version 1903 or higher, with Build 18362 or higher.
 * For ARM64 systems: Version 2004 or higher, with Build 19041 or higher.
