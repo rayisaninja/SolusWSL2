@@ -6,7 +6,7 @@ Solus on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7
 [![License](https://img.shields.io/github/license/sileshn/SolusWSL.svg?style=flat-square)](https://raw.githubusercontent.com/sileshn/SolusWSL/main/LICENSE)
 
 ## Features and important information
-SolusWSL will throw up many [errors](https://i.postimg.cc/wxJKrnqh/Screenshot-2022-02-28-130527.png) while installing packages. This is due to [usysconf](https://github.com/getsolus/usysconf) running post installation triggers. It doesn't affect the normal functioning of SolusWSL afaik. @Fubuchi has put together a workaround to stop displaying the errors. You can find more information [here](https://github.com/Fubuchi/SolusWSL-usysconf-fix.git).
+SolusWSL will throw up many [errors](https://i.postimg.cc/wxJKrnqh/Screenshot-2022-02-28-130527.png) while installing packages. This is due to [usysconf](https://github.com/getsolus/usysconf) running post installation triggers. It doesn't affect the normal functioning of SolusWSL afaik. @Fubuchi has put together a workaround to stop displaying the errors. You can find more information [here](https://github.com/Fubuchi/SolusWSL-usysconf-fix.git). The patched clr-boot-manager is already included in SolusWSL.
 
 SolusWSL has the following features during the installation stage.
 * Increase virtual disk size from the default 256GB
