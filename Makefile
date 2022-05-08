@@ -45,7 +45,7 @@ rootfs: base.tar
 
 base.tar:
 	@echo -e '\e[1;31mExporting base.tar using docker...\e[m'
-	docker run --net=host --name soluswsl silkeh/solus:ypkg /bin/bash -c "eopkg up -y; eopkg it -y iptables iproute2 lolcat openssh rsync; eopkg dc; mkdir -p /usr/local/bin; git clone https://github.com/cmatsuoka/figlet.git; cd figlet; make && make install; rm -rf /root/figlet"
+	docker run --net=host --name soluswsl silkeh/solus:ypkg /bin/bash -c "eopkg up -y; eopkg it -y iptables iproute2 lolcat openssh rsync wget apparmor; eopkg dc; mkdir -p /usr/local/bin; git clone https://github.com/cmatsuoka/figlet.git; cd figlet; make && make install; rm -rf /root/figlet"
 	docker export --output=base.tar soluswsl
 	docker rm -f soluswsl
 
