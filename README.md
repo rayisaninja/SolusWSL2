@@ -11,6 +11,7 @@ SolusWSL will throw up many [errors](https://i.postimg.cc/wxJKrnqh/Screenshot-20
 SolusWSL has the following features during the installation stage.
 * Increase virtual disk size from the default 256GB
 * Create a new user and set the user as default
+* Minimal systemd support using diddledani's [one-script-wsl2-systemd](https://github.com/diddledani/one-script-wsl2-systemd).
 
 SolusWSL includes a wsl.conf file which only has [section headers](https://i.postimg.cc/MZ4DC1Fw/Screenshot-2022-02-02-071533.png). Users can use this file to configure the distro to their liking. You can read more about wsl.conf and its configuration settings [here](https://docs.microsoft.com/en-us/windows/wsl/wsl-config).
 
