@@ -35,6 +35,7 @@ SolusWSL includes a wsl.conf file which only has [section headers](https://i.pos
 	* Download and install the latest Linux kernel update package from [here](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi).
 
 ## How to install
+* Make sure all the steps mentioned under "Requirements" are completed.
 * [Download](https://github.com/sileshn/SolusWSL/releases/latest) installer zip
 * Extract all files in zip file to same directory
 * Set version 2 as default. Note that this step is required only for manual installation.
