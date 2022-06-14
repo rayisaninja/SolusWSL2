@@ -1,19 +1,19 @@
-# SolusWSL
+# SolusWSL2
 Solus on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk7/wsldl)
 
 <a href='http://postimg.cc/tYskWLRX' target='_blank'><img src='https://i.postimg.cc/tYskWLRX/Screenshot-2022-02-28-130824.png' border='0' alt='Screenshot-2022-02-28-130824'/></a>  <a href='http://postimg.cc/gXqzMSYj' target='_blank'><img src='https://i.postimg.cc/gXqzMSYj/Screenshot-2022-02-28-132615.png' border='0' alt='Screenshot-2022-02-28-132615'/></a>   <a href='http://postimg.cc/4HfJj6d5' target='_blank'><img src='https://i.postimg.cc/4HfJj6d5/Screenshot-2022-02-28-132646.png' border='0' alt='Screenshot-2022-02-28-132646'/></a> <a href='http://postimg.cc/HVF22Bjb' target='_blank'><img src='https://i.postimg.cc/HVF22Bjb/Screenshot-2022-02-28-131143.png' border='0' alt='Screenshot-2022-02-28-131143'/></a>   <a href='http://postimg.cc/jwgx0W7Y' target='_blank'><img src='https://i.postimg.cc/jwgx0W7Y/Screenshot-2022-02-28-143712.png' border='0' alt='Screenshot-2022-02-28-143712'/></a>   <a href='http://postimg.cc/0zmCHDJF' target='_blank'><img src='https://i.postimg.cc/0zmCHDJF/Screenshot-2022-02-28-131219.png' border='0' alt='Screenshot-2022-02-28-131219'/></a>   <a href='https://postimg.cc/Dm2YJjbZ' target='_blank'><img src='https://i.postimg.cc/Dm2YJjbZ/Screenshot-2022-02-28-130527.png' border='0' alt='Screenshot-2022-02-28-130527'/></a>   <a href='http://postimg.cc/zVMrkZnp' target='_blank'><img src='https://i.postimg.cc/zVMrkZnp/Screenshot-2022-02-28-133952.png' border='0' alt='Screenshot-2022-02-28-133952'/></a>
-[![Github All Releases](https://img.shields.io/github/downloads/sileshn/SolusWSL/total.svg?style=flat-square)](https://github.com/sileshn/SolusWSL/releases) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
-[![License](https://img.shields.io/github/license/sileshn/SolusWSL.svg?style=flat-square)](https://raw.githubusercontent.com/sileshn/SolusWSL/main/LICENSE)
+[![Github All Releases](https://img.shields.io/github/downloads/sileshn/SolusWSL2/total.svg?style=flat-square)](https://github.com/sileshn/SolusWSL2/releases) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
+[![License](https://img.shields.io/github/license/sileshn/SolusWSL2.svg?style=flat-square)](https://raw.githubusercontent.com/sileshn/SolusWSL2/main/LICENSE)
 
 ## Features and important information
-SolusWSL will throw up many [errors](https://i.postimg.cc/wxJKrnqh/Screenshot-2022-02-28-130527.png) while installing packages. This is due to [usysconf](https://github.com/getsolus/usysconf) running post installation triggers. It doesn't affect the normal functioning of SolusWSL afaik. @Fubuchi has put together a workaround to stop displaying the errors. You can find more information [here](https://github.com/Fubuchi/SolusWSL-usysconf-fix.git). The patched clr-boot-manager is already included in SolusWSL.
+SolusWSL2 will throw up many [errors](https://i.postimg.cc/wxJKrnqh/Screenshot-2022-02-28-130527.png) while installing packages. This is due to [usysconf](https://github.com/getsolus/usysconf) running post installation triggers. It doesn't affect the normal functioning of SolusWSL2 afaik. @Fubuchi has put together a workaround to stop displaying the errors. You can find more information [here](https://github.com/Fubuchi/SolusWSL-usysconf-fix.git). The patched clr-boot-manager is already included in SolusWSL2.
 
-SolusWSL has the following features during the installation stage.
+SolusWSL2 has the following features during the installation stage.
 * Increase virtual disk size from the default 256GB
 * Create a new user and set the user as default
 * Minimal systemd support using diddledani's [one-script-wsl2-systemd](https://github.com/diddledani/one-script-wsl2-systemd).
 
-SolusWSL includes a wsl.conf file which only has [section headers](https://i.postimg.cc/MZ4DC1Fw/Screenshot-2022-02-02-071533.png). Users can use this file to configure the distro to their liking. You can read more about wsl.conf and its configuration settings [here](https://docs.microsoft.com/en-us/windows/wsl/wsl-config).
+SolusWSL2 includes a wsl.conf file which only has [section headers](https://i.postimg.cc/MZ4DC1Fw/Screenshot-2022-02-02-071533.png). Users can use this file to configure the distro to their liking. You can read more about wsl.conf and its configuration settings [here](https://docs.microsoft.com/en-us/windows/wsl/wsl-config).
 
 ## Requirements
 * For x64 systems: Version 1903 or higher, with Build 18362 or higher.
@@ -36,7 +36,7 @@ SolusWSL includes a wsl.conf file which only has [section headers](https://i.pos
 
 ## How to install
 * Make sure all the steps mentioned under "Requirements" are completed.
-* [Download](https://github.com/sileshn/SolusWSL/releases/latest) installer zip
+* [Download](https://github.com/sileshn/SolusWSL2/releases/latest) installer zip
 * Extract all files in zip file to same directory
 * Set version 2 as default. Note that this step is required only for manual installation.
   ```dos
@@ -179,8 +179,8 @@ Docker, tar, zip, unzip need to be installed.
 
 If you want to build using solus unstable profile, checkout the unstable branch.
 ```dos
-git clone git@gitlab.com:sileshn/SolusWSL.git
-cd SolusWSL
+git clone git@gitlab.com:sileshn/SolusWSL2.git
+cd SolusWSL2
 make
 
 ```
@@ -190,7 +190,7 @@ make clean
 
 ```
 
-## How to install & run docker in SolusWSL without using docker desktop
+## How to install & run docker in SolusWSL2 without using docker desktop
 Install docker binaries. Note that installing docker from solus repos doesn't work as the latest version in solus is 19.03.14. We need 20.10 versions and above.
 ```dos
 sudo eopkg it -y wget

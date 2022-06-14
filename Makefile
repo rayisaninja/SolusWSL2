@@ -1,4 +1,4 @@
-OUT_ZIP=SolusWSL.zip
+OUT_ZIP=SolusWSL2.zip
 LNCR_EXE=Solus.exe
 
 DLR=curl
