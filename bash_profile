@@ -116,6 +116,7 @@ sudo sed -i 's/CREATE_MAIL_SPOOL=yes/CREATE_MAIL_SPOOL=no/g' /etc/default/userad
 sudo setcap cap_net_raw+ep /usr/bin/ping
 sudo systemctl daemon-reload
 sudo systemctl enable wslg-init.service >/dev/null 2>&1
+sudo sed -i 's/\\nSystemd/Systemd/g' /etc/profile.d/00-wsl2-systemd.sh
 
 echo -e ${grn}"Create root password"${txtrst}
 passwd
