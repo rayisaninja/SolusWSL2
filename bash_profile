@@ -151,6 +151,15 @@ select yn in "Yes" "No"; do
                     echo "del C:\Users\Public\shutdown.cmd" | sudo tee -a ~/shutdown.cmd >/dev/null 2>&1
                     cp ~/shutdown.cmd /mnt/c/Users/Public
 
+                    if (($(echo $wslversion '>' 67.5 | bc))); then
+                        sed -i '$d' /etc/wsl.conf
+                        commandline="systemd=true"
+                        echo "$commandline" >>/etc/wsl.conf
+                        rm /etc/sudoers.d/wsl2-systemd
+                        rm /etc/profile.d/00-wsl2-systemd.sh
+						touch /etc/profile.d/dummy.sh
+                    fi
+
                     secs=3
                     printf ${ylw}"\nTo set the new user as the default user, SolusWSL will shutdown and restart!!!\n\n"${txtrst}
                     while [ $secs -gt 0 ]; do
@@ -158,6 +167,7 @@ select yn in "Yes" "No"; do
                         sleep 1
                     done
 
+                    rm ~/.bash_profile
                     /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command "Start-Process -Verb Open -FilePath 'shutdown.cmd' -WorkingDirectory 'C:\Users\Public' -WindowStyle Hidden"
                     exec sleep 0
                 fi
@@ -175,6 +185,7 @@ if (($(echo $wslversion '>' 67.5 | bc))); then
     echo "$commandline" >>/etc/wsl.conf
     rm /etc/sudoers.d/wsl2-systemd
     rm /etc/profile.d/00-wsl2-systemd.sh
+	touch /etc/profile.d/dummy.sh
     echo "@echo off" | sudo tee -a ~/shutdown.cmd >/dev/null 2>&1
     echo "wsl.exe --terminate $WSL_DISTRO_NAME" | sudo tee -a ~/shutdown.cmd >/dev/null 2>&1
     if env | grep "WT_SESSION" >/dev/null 2>&1; then
