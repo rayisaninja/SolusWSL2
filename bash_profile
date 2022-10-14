@@ -11,7 +11,7 @@ txtrst=$(tput sgr0)
 diskvol=$(mount | grep -m1 ext4 | cut -f 1 -d " ")
 sudo resize2fs $diskvol >/dev/null 2>&1
 disksize=$(sudo blockdev --getsize64 $diskvol)
-osname=$(/mnt/c/Windows/System32/wbem/wmic.exe os get Caption | sed -n 2p)
+wslversion=$(wsl.exe --version | tr -d '\0' | sed -n 1p | cut -f3 -d " " | cut -f2-3 -d ".")
 width=$(echo $COLUMNS)
 
 if [ "$width" -gt 120 ]; then
@@ -158,16 +158,44 @@ select yn in "Yes" "No"; do
                         sleep 1
                     done
 
-                    rm ~/.bash_profile
                     /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command "Start-Process -Verb Open -FilePath 'shutdown.cmd' -WorkingDirectory 'C:\Users\Public' -WindowStyle Hidden"
                     exec sleep 0
                 fi
             done
             ;;
         No)
-            clear
-            rm ~/.bash_profile
             break
             ;;
     esac
 done
+
+if (($(echo $wslversion '>' 67.5 | bc))); then
+    sed -i '$d' /etc/wsl.conf
+    commandline="systemd=true"
+    echo "$commandline" >>/etc/wsl.conf
+    rm /etc/sudoers.d/wsl2-systemd
+    rm /etc/profile.d/00-wsl2-systemd.sh
+    echo "@echo off" | sudo tee -a ~/shutdown.cmd >/dev/null 2>&1
+    echo "wsl.exe --terminate $WSL_DISTRO_NAME" | sudo tee -a ~/shutdown.cmd >/dev/null 2>&1
+    if env | grep "WT_SESSION" >/dev/null 2>&1; then
+        echo "wt.exe -w 0 nt wsl.exe -d $WSL_DISTRO_NAME" | sudo tee -a ~/shutdown.cmd >/dev/null 2>&1
+    else
+        echo "cmd /c start \"$WSL_DISTRO_NAME\" wsl.exe --cd ~ -d $WSL_DISTRO_NAME" | sudo tee -a ~/shutdown.cmd >/dev/null 2>&1
+    fi
+    echo "del C:\Users\Public\shutdown.cmd" | sudo tee -a ~/shutdown.cmd >/dev/null 2>&1
+    cp ~/shutdown.cmd /mnt/c/Users/Public
+
+    secs=3
+    printf ${ylw}"\nSwitched to native systemd. SolusWSL2 will shutdown and restart!!!\n\n"${txtrst}
+    while [ $secs -gt 0 ]; do
+        printf "\r\033[KShutting down in %.d seconds. " $((secs--))
+        sleep 1
+    done
+
+    rm ~/.bash_profile
+    /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command "Start-Process -Verb Open -FilePath 'shutdown.cmd' -WorkingDirectory 'C:\Users\Public' -WindowStyle Hidden"
+    exec sleep 0
+else
+    rm ~/.bash_profile
+    clear
+fi
